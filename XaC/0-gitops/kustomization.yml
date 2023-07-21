@@ -5,3 +5,4 @@ resources:
   - 0-ns.yml
   - 1-sub.yml
   - 2-rbac.yml
+  - 3-route.yml
