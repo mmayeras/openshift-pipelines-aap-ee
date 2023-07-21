@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openshiftgitops
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  source:
+    repoURL: https://github.com/mmayeras/openshift-pipelines-aap-playbooks.git
+    targetRevision: dev
+    path: XaC/0-gitops
+  destination:
+    server: https://kubernetes.default.svc
