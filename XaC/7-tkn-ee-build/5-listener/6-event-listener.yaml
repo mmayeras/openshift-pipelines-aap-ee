@@ -1,0 +1,10 @@
+---
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: ansible-ee-el
+  namespace: ansible-ee-build
+spec:
+  serviceAccountName: pipeline
+  triggers:
+    - triggerRef: ansible-ee-t

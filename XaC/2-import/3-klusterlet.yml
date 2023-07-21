@@ -1,0 +1,26 @@
+---
+apiVersion: agent.open-cluster-management.io/v1
+kind: KlusterletAddonConfig
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: sno-home
+  namespace: sno-home
+spec:
+  clusterName: sno-home
+  clusterNamespace: sno-home
+  clusterLabels:
+    name: sno-home
+    cloud: auto-detect
+    vendor: auto-detect
+    cluster.open-cluster-management.io/clusterset: gitops-clusters
+  applicationManager:
+    enabled: true
+  policyController:
+    enabled: true
+  searchCollector:
+    enabled: true
+  certPolicyController:
+    enabled: true
+  iamPolicyController:
+    enabled: true

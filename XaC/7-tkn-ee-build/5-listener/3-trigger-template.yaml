@@ -1,0 +1,60 @@
+---
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerTemplate
+metadata:
+  name: ansible-ee-tt
+  namespace: ansible-ee-build
+spec:
+  params:
+    - name: gitrevision
+      description: The git revision (id)
+
+    - name: short-id
+      description: truncated commit id
+
+    - name: gitrepositoryurl
+      description: The git repository url
+
+    - name: reponame
+      description: The git repository name
+
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1beta1
+      kind: PipelineRun
+      metadata:
+        annotations:
+        labels:
+          tekton.dev/pipeline: ansible-builder
+        generateName: ansible-ee-triggered-run-
+      spec:
+        params:
+        - name: ANSIBLE_BUILDER_IMAGE
+          value: registry.redhat.io/ansible-automation-platform-24/ansible-builder-rhel9:latest
+
+        - name: NAME
+          value: quay.io/rh_ee_$(tt.params.reponame)
+
+        - name: TAG
+          value: $(tt.params.short-id)
+
+        - name: TLSVERIFY
+          value: 'false'
+
+        - name: git-url
+          value: $(tt.params.gitrepositoryurl)
+
+        - name: git-revision
+          value: $(tt.params.gitrevision)
+
+        - name: short-git-revision
+          value: $(tt.params.short-id)
+          
+        pipelineRef:
+          name: ansible-builder
+        serviceAccountName: pipeline
+        timeout: 1h0m0s
+
+        workspaces:
+        - name: ee-repo
+          persistentVolumeClaim:
+            claimName: ansible-builder-pvc

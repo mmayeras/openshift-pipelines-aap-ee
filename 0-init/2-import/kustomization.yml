@@ -1,0 +1,5 @@
+---
+resources:
+- 0-appproject.yml
+- 1-placement.yml
+- 2-import.yml

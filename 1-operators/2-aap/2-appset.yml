@@ -1,0 +1,29 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: ansible-automation-platform
+  namespace: openshift-gitops
+spec:
+  generators:
+    - clusterDecisionResource:
+        configMapRef: acm-placement
+        labelSelector:
+          matchLabels:
+            cluster.open-cluster-management.io/placement: aap-placement
+        requeueAfterSeconds: 180
+  template:
+    metadata:
+      name: ansible-automation-platform-{{name}}
+    spec:
+      project: ansible-automation-platform
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      source:
+        repoURL: https://github.com/mmayeras/gitops-demo.git
+        targetRevision: main
+        path: XaC/5-aap
+      destination:
+        server: "{{server}}"

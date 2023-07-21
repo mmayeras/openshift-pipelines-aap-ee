@@ -1,0 +1,16 @@
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: aap-placement
+  namespace: openshift-gitops
+spec:
+  clusterSets:
+    - gitops-clusters
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: aap
+              operator: In
+              values:
+                - "true"

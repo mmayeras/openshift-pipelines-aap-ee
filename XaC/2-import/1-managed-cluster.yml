@@ -1,0 +1,15 @@
+---
+apiVersion: cluster.open-cluster-management.io/v1
+kind: ManagedCluster
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: sno-home
+  labels:
+    name: sno-home
+    cloud: auto-detect
+    vendor: auto-detect
+    cluster.open-cluster-management.io/clusterset: gitops-clusters
+    aap: true
+spec:
+  hubAcceptsClient: true
