@@ -1,9 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-commonAnnotations:
-  argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-resources:
-- 0-acm-ns.yml
-- 1-acm-og.yml
-- 2-acm-sub.yml
-- 3-acm-mch.yml
