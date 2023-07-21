@@ -9,7 +9,7 @@ spec:
       prune: true
       selfHeal: true
   source:
-    repoURL: https://github.com/mmayeras/openshift-pipelines-aap-playbooks.git
+    repoURL: https://github.com/mmayeras/openshift-pipelines-aap-ee.git
     targetRevision: dev
     path: XaC/0-gitops
   destination:
