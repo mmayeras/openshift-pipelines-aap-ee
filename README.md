@@ -32,4 +32,6 @@ oc get route -n openshift-gitops openshift-gitops-server -o 'jsonpath={@.spec.ho
 oc -n openshift-gitops get secret openshift-gitops-cluster -o jsonpath='{.data.admin\.password}' | base64 -d
 
 ## Uninstall
-oc delete -k gitOpsApplications
+oc delete -f gitOpsApplications/openshift-gitops-apps.yaml
+### Wait till deletion complete
+oc delete -k XaC/0-gitops
