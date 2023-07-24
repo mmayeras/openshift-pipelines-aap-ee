@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: openshiftgitops
+  name: openshift-pipelines
 spec:
   project: default
   syncPolicy:
@@ -11,6 +11,6 @@ spec:
   source:
     repoURL: https://github.com/mmayeras/openshift-pipelines-aap-ee.git
     targetRevision: dev
-    path: XaC/0-gitops
+    path: XaC/6-tkn
   destination:
     server: https://kubernetes.default.svc
