@@ -6,5 +6,5 @@ namespace: openshift-gitops
 
 resources:
   - openshift-gitops.yaml
-  - aap.yaml
-  - openshift-pilelines.yaml
+  #- aap.yaml
+  #- openshift-pilelines.yaml
