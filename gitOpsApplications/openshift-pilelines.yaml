@@ -2,12 +2,14 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: openshift-pipelines
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
-  #syncPolicy:
-  #  automated:
-  #    prune: true
-  #    selfHeal: true
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
   source:
     repoURL: https://github.com/mmayeras/openshift-pipelines-aap-ee.git
     targetRevision: dev

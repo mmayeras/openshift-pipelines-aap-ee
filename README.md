@@ -30,3 +30,6 @@ oc apply -k gitOpsApplications
 oc get route -n openshift-gitops openshift-gitops-server -o 'jsonpath={@.spec.host}'
 #argocd password
 oc -n openshift-gitops get secret openshift-gitops-cluster -o jsonpath='{.data.admin\.password}' | base64 -d
+
+## Uninstall
+oc delete -k gitOpsApplications
