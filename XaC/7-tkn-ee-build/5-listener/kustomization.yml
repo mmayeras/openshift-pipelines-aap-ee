@@ -1,0 +1,11 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - 0-pvc.yaml
+  - 1-pipeline-ansible-builder.yaml
+  - 2-trigger-binding.yaml
+  - 3-trigger-template.yaml
+  - 4-trigger.yaml
+  - 6-event-listener.yaml
+  - 7-el-route.yaml
