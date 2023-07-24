@@ -30,4 +30,3 @@ spec:
   admin_user: admin
   loadbalancer_protocol: http
   admin_password_secret: aac-admin-password
-  postgres_storage_class: lvms-vg1
