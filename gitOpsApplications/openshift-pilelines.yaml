@@ -4,10 +4,10 @@ metadata:
   name: openshift-pipelines
 spec:
   project: default
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  #syncPolicy:
+  #  automated:
+  #    prune: true
+  #    selfHeal: true
   source:
     repoURL: https://github.com/mmayeras/openshift-pipelines-aap-ee.git
     targetRevision: dev
