@@ -9,4 +9,5 @@ resources:
   - openshift-gitops-apps.yaml
   - aap.yaml
   - openshift-pilelines.yaml
+  - aap-build-pipeline.yaml
   
