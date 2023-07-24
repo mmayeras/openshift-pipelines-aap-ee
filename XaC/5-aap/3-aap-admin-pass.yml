@@ -7,5 +7,6 @@ metadata:
   name: aac-admin-password
   namespace: ansible-automation-platform
 data:
+  ## password is 'password' base64 encoded.
   password: "cGFzc3dvcmQ="
 type: Opaque

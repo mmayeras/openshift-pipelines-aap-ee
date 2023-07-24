@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aap-operator
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  source:
+    repoURL: https://github.com/mmayeras/openshift-pipelines-aap-ee.git
+    targetRevision: dev
+    path: XaC/5-aap
+  destination:
+    server: https://kubernetes.default.svc
