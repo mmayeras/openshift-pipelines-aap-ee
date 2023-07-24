@@ -4,5 +4,4 @@ kind: Kustomization
 commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 resources:
-#- 0-tkn-ns.yml
-- 1-tkn-sub.yml
+- 0-tkn-sub.yml
