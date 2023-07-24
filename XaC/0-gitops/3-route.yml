@@ -7,6 +7,6 @@ spec:
   server:
     route:
       enabled: true
-      tls:
-        insecureEdgeTerminationPolicy: Redirect
-        termination: reencrypt
+      #tls:
+      #  insecureEdgeTerminationPolicy: Redirect
+      #  termination: reencrypt
