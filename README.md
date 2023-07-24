@@ -25,7 +25,7 @@ _Optional: Patch argocd instance for reencrypt route_
 
 
 Deploy:
-oc apply -k Xac/0-gitops
+oc apply -k XaC/0-gitops
 oc apply -k gitOpsApplications
 oc get route -n openshift-gitops openshift-gitops-server -o 'jsonpath={@.spec.host}'
 
