@@ -1,0 +1,13 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonAnnotations:
+  argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+resources:
+- 0-pvc.yml
+- 1-pipeline-ansible-builder.yml
+- 2-trigger-binding.yml
+- 3-trigger-template.yml
+- 4-trigger.yml
+- 6-event-listener.yml
+- 7-el-route.yml

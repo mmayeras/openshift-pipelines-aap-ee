@@ -1,0 +1,8 @@
+---
+apiVersion: automationcontroller.ansible.com/v1beta1
+kind: AutomationController
+metadata:
+  name: aac
+  namespace: ansible-automation-platform
+spec:
+  postgres_storage_class: lvms-vg1

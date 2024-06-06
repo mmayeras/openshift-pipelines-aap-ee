@@ -1,0 +1,10 @@
+---
+apiVersion: automationcontroller.ansible.com/v1beta1
+kind: AutomationController
+metadata:
+  name: aac
+  namespace: ansible-automation-platform
+spec:
+  ee_images:
+    - name: new-ee-demo
+      image: quay.io/rh_ee_mmayeras/new-ee-demo:latest

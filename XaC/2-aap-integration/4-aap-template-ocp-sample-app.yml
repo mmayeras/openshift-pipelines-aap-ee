@@ -1,0 +1,11 @@
+apiVersion: tower.ansible.com/v1alpha1
+kind: JobTemplate
+metadata:
+  name: ocp-create-app
+  namespace: ansible-automation-platform
+spec:
+  name: Create Sample App
+  connection_secret: admin-token
+  inventory: Demo Inventory
+  project: Demo Playbooks
+  playbook: Create_sample_app.yml

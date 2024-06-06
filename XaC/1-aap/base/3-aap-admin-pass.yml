@@ -1,0 +1,18 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: aac-admin-password
+  namespace: ansible-automation-platform
+spec:
+  encryptedData:
+    password: AgB4wRWYDXYFM5lkWTEiysNcFL1lC71PRcH9kTGgF1hrjzEfEOeSjm5U3G/HvKqp3k2GoJ8yBafldpUvQoXX4oyCs8Vel7g2VxfQEYnHpT58MSfW3I8Vyo4erVH8AD3ZLYruWBHnHwPhvqZz11X168EneDAYFJpweeiZmh2QU8GR36b51bS6TPs4pP4oATHw5cuFT79XNFfvcKxKcUUPSgDH+ZW3AmSI5H1K9NS2fjmAaG1YXif35UGgyYE+Kx4nwLGvq3c5bGAkcdUy5wVaARsGCKag8cWBwO9kB6BRprNiJK9vBr6FpuIiYYJ25dYvnbnbXsm7GWGg3Tw1ApBCPCsFHOijPeIFz8iNdZk37DGcafTYbl2cfTN4GtyQIVF4k757MJ+Z8+eupb6KBrQLu8+FTRA9g5O0TjcmOZJH2Txk2R5ks9Y6507A54kzfzZamNGtJ/lFzbQZbY1S+8iETbb589nBW/OmpsV3VVV9FzVjX+G56vC9zsRgvYPHvZZJiIAENrg7cUUJ1E+5YarZ32oJcSAtn63mzqGzoQDeG4sJ4I96+TnaEeEf3EJSGmH+L0nHNl07d0xcsH79IZO6a1qdZ+hdHOkDGCYeXLbNfdcpSqI6DPL3PuOerrpjE8f6uqfJdgaB5hmnx/wOoMNx2DK3bVjwvKqd6yfubi5+wEebBtQlnfoK00RgRkrSs18inZXATyG/d5wryw==
+  template:
+    metadata:
+      annotations:
+        argocd.argoproj.io/sync-wave: "1"
+      creationTimestamp: null
+      name: aac-admin-password
+      namespace: ansible-automation-platform
+    type: Opaque

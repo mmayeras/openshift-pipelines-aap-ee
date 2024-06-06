@@ -1,0 +1,11 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonAnnotations:
+  argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+resources:
+- 0-aap-ns.yml
+- 1-aap-og.yml
+- 2-aap-sub.yml
+- 3-aap-admin-pass.yml
+- 4-aap-ac.yml

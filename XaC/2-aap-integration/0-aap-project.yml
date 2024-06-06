@@ -1,0 +1,13 @@
+---
+apiVersion: tower.ansible.com/v1alpha1
+kind: AnsibleProject
+metadata:
+  name: openshift-pipelines-aap-playbooks
+  namespace: ansible-automation-platform
+spec:
+  name: Demo Playbooks
+  connection_secret: admin-token
+  organization: Default
+  scm_type: git
+  repo: 'https://github.com/mmayeras/openshift-pipelines-aap-playbooks.git'
+  branch: main

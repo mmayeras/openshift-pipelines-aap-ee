@@ -1,0 +1,34 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: tkn-ee-build-pipeline
+  namespace: openshift-gitops
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: local
+        url: https://kubernetes.default.svc
+  template:
+    metadata:
+      name: openshift-pipelines-ansible-ee-{{cluster}}
+    spec:
+      ignoreDifferences:
+      - kind: ServiceAccount
+        jsonPointers:
+        - /imagePullSecrets
+        - /secrets
+      project: demo
+      syncPolicy:
+        syncOptions:
+        - Replace=false
+        automated:
+          prune: true
+          selfHeal: false
+      source:
+        repoURL: https://github.com/mmayeras/gitops-demo.git
+        targetRevision: dev
+        path: XaC/4-tkn-ee-build
+      destination:
+        server: "{{url}}"

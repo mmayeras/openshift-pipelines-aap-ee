@@ -1,0 +1,33 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: ansible-ee-t
+  namespace: ansible-ee-build
+spec:
+  bindings:
+  - kind: TriggerBinding
+    ref: ansible-ee-tb
+  interceptors:
+  - params:
+    - name: secretRef
+      value:
+        secretKey: secretToken
+        secretName: github-trigger-secret
+    - name: eventTypes
+      value:
+      - push
+    ref:
+      kind: ClusterInterceptor
+      name: github
+  - params: 
+    - name: filter
+      value: ""
+    - name: overlays
+      value:
+      - expression: body.head_commit.id.truncate(7)
+        key: short_sha
+    ref:
+      kind: ClusterInterceptor
+      name: cel #https://tekton.dev/docs/triggers/interceptors/#cel-interceptors
+  template:
+    ref: ansible-ee-tt

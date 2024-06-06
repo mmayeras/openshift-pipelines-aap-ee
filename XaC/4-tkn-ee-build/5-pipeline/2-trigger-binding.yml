@@ -1,0 +1,20 @@
+---
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerBinding
+metadata:
+  name: ansible-ee-tb
+  namespace: ansible-ee-build
+spec:
+  params:
+    #https://docs.github.com/en/webhooks-and-events/webhooks/webhook-events-and-payloads
+    - name: gitrevision
+      value: $(body.head_commit.id)
+
+    - name: short-id
+      value: $(extensions.short_sha)
+
+    - name: gitrepositoryurl
+      value: "https://github.com/$(body.repository.full_name)"
+
+    - name: reponame
+      value: $(body.repository.full_name)

@@ -1,0 +1,12 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+# commonAnnotations:
+#   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+resources:
+- 0-tkn-ee-build-ns.yml
+- 1-tkn-ee-build-secrets.yml
+- 2-tkn-ee-build-builder-task.yml
+- 3-tkn-ee-build-git-clone-task.yml
+- 4-tkn-ee-build-buildah-task.yml
+- 5-pipeline

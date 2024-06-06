@@ -1,0 +1,27 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: sealed-secrets
+  namespace: openshift-gitops
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: local
+        url: https://kubernetes.default.svc
+  template:
+    metadata:
+      name: sealed-secrets-{{cluster}}
+    spec:
+      project: demo
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      source:
+        repoURL: https://github.com/mmayeras/gitops-demo.git
+        targetRevision: dev
+        path: XaC/0-sealedsecrets
+      destination:
+        server: "{{url}}"

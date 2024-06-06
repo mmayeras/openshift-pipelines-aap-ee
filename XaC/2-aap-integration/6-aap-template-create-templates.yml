@@ -1,0 +1,11 @@
+apiVersion: tower.ansible.com/v1alpha1
+kind: JobTemplate
+metadata:
+  name: aap-create-templates
+  namespace: ansible-automation-platform
+spec:
+  name: Create Job Templates
+  connection_secret: admin-token
+  inventory: Demo Inventory
+  project: Demo Playbooks
+  playbook: Create_job_templates.yml

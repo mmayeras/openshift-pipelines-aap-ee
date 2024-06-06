@@ -1,0 +1,12 @@
+apiVersion: tower.ansible.com/v1alpha1
+kind: JobTemplate
+metadata:
+  name: hello-world
+  namespace: ansible-automation-platform
+spec:
+  name: HelloWorld
+  connection_secret: admin-token
+  inventory: Demo Inventory
+  project: openshift-pipelines-aap-playbooks
+  playbook: HelloWorld.yml
+
